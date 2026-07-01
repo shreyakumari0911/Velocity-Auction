@@ -276,8 +276,7 @@ https://www.linkedin.com/in/sk0911/
 
 # Live Demo Video
 
+https://github.com/user-attachments/assets/a1231a16-30ed-4e3e-9aee-70584507cc4e
 
-
-https://github.com/user-attachments/assets/d015da57-9d28-413c-b3e6-4c2667f27011
 
 
