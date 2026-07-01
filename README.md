@@ -219,31 +219,7 @@ Project architecture and design decisions are documented in:
 
 - `Architecture.md`
 
----
 
-# Deployment
-
-Deployment instructions are available in:
-
-- `Deployment_Guide.md`
-
-The project can be deployed using:
-
-- Vercel (Frontend)
-- Railway / Render (Backend)
-- MongoDB Atlas
-
----
-
-# Screenshots
-
-You can add screenshots of:
-
-- Home Page
-- Login Page
-- Admin Dashboard
-- Live Auction
-- Bidding Page
 
 ---
 
