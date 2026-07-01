@@ -1,0 +1,79 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+    
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+      redis:
+        image: redis:alpine
+        ports:
+          - 6379:6379
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-size: 20
+          cache: 'npm'
+          cache-dependency-path: 'backend/package-lock.json'
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm ci
+
+      - name: Verify Backend Types
+        run: |
+          cd backend
+          npm run build
+
+      - name: Run Backend Tests
+        run: |
+          cd backend
+          npm test
+        env:
+          PORT: 5000
+          MONGODB_URI: mongodb://localhost:27017/test-db
+          REDIS_URL: redis://localhost:6379
+          JWT_SECRET: test_jwt_secret_key_12345
+          JWT_REFRESH_SECRET: test_jwt_refresh_secret_key_12345
+          ACCESS_TOKEN_EXPIRY: 15m
+          REFRESH_TOKEN_EXPIRY: 7d
+          NODE_ENV: test
+
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-size: 20
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Verify Frontend Build
+        run: |
+          cd frontend
+          npm run build
