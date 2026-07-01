@@ -268,6 +268,8 @@ GitHub: https://github.com/shreyakumari0911
 
 ---
 
-# License
+# Linkedin
 
-This project was developed for educational and learning purposes.
+https://www.linkedin.com/in/sk0911/
+
+
