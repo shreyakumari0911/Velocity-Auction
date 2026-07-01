@@ -1,64 +1,273 @@
-# Live Bike Auction Platform (VelocityAuction)
+# VelocityAuction – Live Bike Auction Platform
 
-A production-grade, real-time motorcycle bidding auction platform built with a modern decoupled stack. Designed with a clean layered architecture, robust database models, MongoDB atomic concurrency protection, automated status lifecycle jobs, and Pino logging.
+VelocityAuction is a full-stack web application that enables users to participate in live motorcycle auctions in real time. Users can browse available bikes, place bids, track ongoing auctions, and view auction results. Administrators can create and manage auctions, upload bike images, and monitor platform activity through a dedicated dashboard.
 
-The application is fully compatible with direct serverless and cloud deployments (e.g. Vercel for frontend, Railway/Render for backend, and MongoDB Atlas).
-
----
-
-## 🛠️ Tech Stack
-
-- **Backend**: Node.js, Express, TypeScript, Mongoose/MongoDB, Socket.io, Pino
-- **Frontend**: React, Vite, TypeScript, Tailwind CSS, Lucide Icons, Axios, React Query
-- **Authentication**: JWT Cookies
-- **Validation**: Zod
+The project is built using the MERN stack with TypeScript and Socket.IO to provide a seamless real-time bidding experience.
 
 ---
 
-## 📂 Project Structure
+## Features
 
-- **`/backend`**: Core API server, Pino log configurations, cron status worker, Socket.io ws gateway, and Jest testing files.
-- **`/frontend`**: React Vite SPA with responsive, dark-mode-ready visual components.
+### User Features
+
+- User registration and secure login
+- JWT-based authentication with refresh tokens
+- Browse live and upcoming auctions
+- View motorcycle details
+- Place bids in real time
+- Live bid history
+- Countdown timer for auctions
+- View won auctions
+- Responsive user interface
+
+### Admin Features
+
+- Secure admin dashboard
+- Create new auctions
+- Update existing auctions
+- Delete auctions
+- Upload motorcycle images
+- Monitor auction statistics
+- Automatic auction scheduling
+
+### Security
+
+- JWT Authentication
+- Password hashing using bcrypt
+- Role-based authorization
+- Request validation using Zod
+- Rate limiting
+- Helmet security headers
+- NoSQL injection protection
+- Secure file upload validation
 
 ---
 
-## 📖 Supporting Documentation
+# Tech Stack
 
-To examine architectural details, endpoints, and assumptions, read:
+## Frontend
 
-1. [Architecture & Design Docs](./Architecture.md)
-2. [API Documentation Reference](./API_Documentation.md)
-3. [Deployment Guide & Setup](./Deployment_Guide.md)
-4. [Project Assumptions & Decouplings](./Assumptions.md)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- React Query
+- Socket.IO Client
+
+## Backend
+
+- Node.js
+- Express
+- TypeScript
+- MongoDB
+- Mongoose
+- Socket.IO
+- JWT
+- Multer
+- Zod
+- Pino Logger
 
 ---
 
-## 🚀 Quick Start (Running Locally)
+# Project Structure
 
-### 1. Start MongoDB
-Ensure MongoDB is running locally (e.g., `mongodb://localhost:27017`) or configure a MongoDB Atlas cluster URI in `backend/.env`.
+```
+Velocity-Auction/
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── repositories/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── sockets/
+│   │   ├── validators/
+│   │   └── jobs/
+│   │
+│   └── tests/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   └── utils/
+│
+├── README.md
+├── API_Documentation.md
+├── Architecture.md
+├── Deployment_Guide.md
+└── Assumptions.md
+```
 
-### 2. Run the Backend API:
+---
+
+# Getting Started
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (v18 or later)
+- npm
+- MongoDB (Local or MongoDB Atlas)
+
+---
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/shreyakumari0911/Velocity-Auction.git
+
+cd Velocity-Auction
+```
+
+---
+
+# Environment Variables
+
+Create a `.env` file inside the **backend** folder.
+
+Example:
+
+```env
+PORT=5000
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_jwt_secret
+
+JWT_REFRESH_SECRET=your_refresh_secret
+
+ACCESS_TOKEN_EXPIRY=15m
+
+REFRESH_TOKEN_EXPIRY=7d
+
+NODE_ENV=development
+
+FRONTEND_URL=http://localhost:3000
+```
+
+---
+
+# Running the Backend
+
 ```bash
 cd backend
+
 npm install
+
 npm run dev
 ```
-Serves on: [http://localhost:5000](http://localhost:5000)
 
-### 3. Run the Frontend SPA:
+Backend runs on:
+
+```
+http://localhost:5000
+```
+
+---
+
+# Running the Frontend
+
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
-Serves on: [http://localhost:3000](http://localhost:3000)
+
+Frontend runs on:
+
+```
+http://localhost:3000
+```
 
 ---
 
-## 🧪 Running Tests Locally
+# Running Tests
+
+Backend tests:
 
 ```bash
 cd backend
+
 npm test
 ```
+
+---
+
+# API Documentation
+
+Detailed API documentation is available in:
+
+- `API_Documentation.md`
+
+---
+
+# Architecture
+
+Project architecture and design decisions are documented in:
+
+- `Architecture.md`
+
+---
+
+# Deployment
+
+Deployment instructions are available in:
+
+- `Deployment_Guide.md`
+
+The project can be deployed using:
+
+- Vercel (Frontend)
+- Railway / Render (Backend)
+- MongoDB Atlas
+
+---
+
+# Screenshots
+
+You can add screenshots of:
+
+- Home Page
+- Login Page
+- Admin Dashboard
+- Live Auction
+- Bidding Page
+
+---
+
+# Future Improvements
+
+Some enhancements planned for future versions include:
+
+- Email notifications
+- Payment gateway integration
+- User profile management
+- Auction analytics dashboard
+- Advanced search and filters
+- Mobile application
+
+---
+
+# Author
+
+**Shreya Kumari**
+
+GitHub: https://github.com/shreyakumari0911
+
+---
+
+# License
+
+This project was developed for educational and learning purposes.
